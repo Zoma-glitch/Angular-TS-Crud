@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+    <link rel="stylesheet" href="src/css/style.css" />
+  </head>
+
+  <body class="bg-light">
+    <!-- ================= Header ================= -->
+    <nav class="navbar navbar-dark bg-gradient-purple sticky-top shadow py-3">
+      <div class="container d-flex justify-content-between">
+        <div class="d-flex align-items-center gap-2 text-white">
+          <i class="fa-solid fa-table-columns fs-4"></i>
+          <h5 class="mb-0 fw-bold fs-4">Kanban</h5>
+        </div>
+        <button
+          class="btn btn-transparent"
+          data-bs-toggle="modal"
+          data-bs-target="#taskModal"
+        >
+          <i class="fa-solid fa-plus text-white"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ================= Board ================= -->
+    <div class="container py-5">
+      <div class="row g-4">
+        <!-- TO DO -->
+        <div class="col-md-4">
+          <div class="kanban-column" data-status="todo">
+            <div class="d-flex align-items-center gap-3 mb-4">
+              <div class="icon-box bg-slate-100">
+                <i class="fa-solid fa-clipboard-list"></i>
+              </div>
+
+              <div class="flex-grow-1">
+                <h5 class="fw-semibold mb-0">To Do</h5>
+                <small id="taskTodoCount" class="text-slate-100 fw-semibold"
+                  >0 tasks</small
+                >
+              </div>
+            </div>
+
+            <div class="task-container" id="tasks-todo">
+              <!-- <div class="empty-state text-center text-slate-100 fw-semibold">
+                <i class="fa-regular fa-folder-open fs-1 mb-2 opacity-50"></i>
+                <p class="mb-0">No tasks yet</p>
+                <small>Click + to add one</small>
+              </div>
+              <div class="task-card card p-3 shadow-sm border">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-3"
+                >
+                  <div class="d-flex align-items-center gap-2">
+                    <span class="dot bg-secondary"></span>
+                    <span class="task-id text-uppercase">#002</span>
+                  </div>
+
+                  <div class="task-actions">
+                    <button
+                      class="btn btn-sm btn-light edit-btn"
+                      title="Edit task"
+                    >
+                      <i class="fa-solid fa-pen small"></i>
+                    </button>
+
+                    <button
+                      class="btn btn-sm btn-light delete-btn text-danger"
+                      title="Delete task"
+                    >
+                      <i class="fa-solid fa-trash-can small"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <h6 class="fw-semibold text-dark mb-2">kkkk</h6>
+                <p class="fw-semibold text-secondary mb-2">Description</p>
+
+                <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+                  <span
+                    class="badge priority-badge text-primary bg-info-subtle"
+                  >
+                    <span class="priority-dot bg-primary"></span>
+                    Low
+                  </span>
+                  <span class="badge priority-badge text-red bg-red">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    OVERDUE
+                  </span>
+                </div>
+
+                <div
+                  class="d-flex align-items-center gap-3 text-muted small pb-3 mb-3 border-bottom"
+                >
+                  <div class="d-flex align-items-center gap-1">
+                    <i class="fa-regular fa-clock"></i>
+                    <span>1m ago</span>
+                  </div>
+                </div>
+
+                <div class="d-flex flex-wrap gap-2">
+                  <button
+                    class="btn btn-sm text-amber-500 bg-amber-50 status-btn"
+                    data-status="in-progress"
+                  >
+                    <i class="fa-solid fa-play"></i> Start
+                  </button>
+
+                  <button
+                    class="btn btn-sm text-emerald-500 bg-emerald-50 status-btn"
+                    data-status="completed"
+                  >
+                    <i class="fa-solid fa-check"></i> Complete
+                  </button>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- IN PROGRESS -->
+        <div class="col-md-4">
+          <div class="kanban-column" data-status="todo">
+            <div class="d-flex align-items-center gap-3 mb-4">
+              <div class="icon-box bg-amber-50">
+                <i class="fa-solid fa-spinner text-amber-500"></i>
+              </div>
+
+              <div class="flex-grow-1">
+                <h5 class="fw-semibold mb-0">In Progress</h5>
+                <small
+                  id="taskInProgressCount"
+                  class="text-slate-100 fw-semibold"
+                  >0 tasks</small
+                >
+              </div>
+            </div>
+
+            <div class="task-container" id="tasks-in-progress">
+              <!-- <div class="empty-state text-center text-slate-100 fw-semibold">
+                <i class="fa-regular fa-folder-open fs-1 mb-2 opacity-50"></i>
+                <p class="mb-0">No tasks yet</p>
+                <small>Click + to add one</small>
+              </div>
+              <div class="task-card card p-3 shadow-sm border">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-3"
+                >
+                  <div class="d-flex align-items-center gap-2">
+                    <span class="dot bg-amber-500"></span>
+                    <span class="task-id text-uppercase">#002</span>
+                  </div>
+
+                  <div class="task-actions">
+                    <button
+                      class="btn btn-sm btn-light edit-btn"
+                      title="Edit task"
+                    >
+                      <i class="fa-solid fa-pen small"></i>
+                    </button>
+
+                    <button
+                      class="btn btn-sm btn-light delete-btn text-danger"
+                      title="Delete task"
+                    >
+                      <i class="fa-solid fa-trash-can small"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <h6 class="fw-semibold text-dark mb-2">kkkk</h6>
+                <p class="fw-semibold text-secondary mb-2">Description</p>
+                <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+                  <span class="badge priority-badge text-red bg-red">
+                    <span class="priority-dot bg-dark-red"></span>
+                    High Priority
+                  </span>
+                  <span class="badge priority-badge text-amber-500 bg-amber-50">
+                    Due Soon
+                  </span>
+                </div>
+
+                <div
+                  class="d-flex align-items-center gap-3 text-muted small pb-3 mb-3 border-bottom"
+                >
+                  <div class="d-flex align-items-center gap-1">
+                    <i class="fa-regular fa-clock"></i>
+                    <span>1m ago</span>
+                  </div>
+                </div>
+
+                <div class="d-flex flex-wrap gap-2">
+                  <button
+                    class="btn btn-sm text-secondary bg-slate-100 status-btn"
+                    data-status="in-progress"
+                  >
+                    <i class="fa-solid fa-arrow-rotate-left me-1"></i>To Do
+                  </button>
+
+                  <button
+                    class="btn btn-sm text-emerald-500 bg-emerald-50 status-btn"
+                    data-status="completed"
+                  >
+                    <i class="fa-solid fa-check"></i> Complete
+                  </button>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- COMPLETED -->
+        <div class="col-md-4">
+          <div class="kanban-column" data-status="todo">
+            <div class="d-flex align-items-center gap-3 mb-4">
+              <div class="icon-box bg-emerald-50">
+                <i class="fa-solid fa-circle-check text-emerald-500"></i>
+              </div>
+
+              <div class="flex-grow-1">
+                <h5 class="fw-semibold mb-0">Completed</h5>
+                <small id="taskCompleteCount" class="text-slate-100 fw-semibold"
+                  >0 tasks</small
+                >
+              </div>
+            </div>
+
+            <div class="task-container" id="tasks-completed">
+              <!-- <div class="empty-state text-center text-slate-100 fw-semibold">
+                <i class="fa-regular fa-folder-open fs-1 mb-2 opacity-50"></i>
+                <p class="mb-0">No tasks yet</p>
+                <small>Click + to add one</small>
+              </div>
+              <div class="task-card card p-3 shadow-sm border">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-3"
+                >
+                  <div class="d-flex align-items-center gap-2">
+                    <span class="dot bg-emerald-500"></span>
+                    <span class="task-id text-uppercase">#002</span>
+                  </div>
+
+                  <div class="task-actions">
+                    <button
+                      class="btn btn-sm btn-light edit-btn"
+                      title="Edit task"
+                    >
+                      <i class="fa-solid fa-pen small"></i>
+                    </button>
+
+                    <button
+                      class="btn btn-sm btn-light delete-btn text-danger"
+                      title="Delete task"
+                    >
+                      <i class="fa-solid fa-trash-can small"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <h6 class="fw-semibold text-dark mb-2">kkkk</h6>
+                <p class="fw-semibold text-secondary mb-2">Description</p>
+
+                <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+                  <span class="badge priority-badge bg-amber-50 text-amber-500">
+                    <span class="priority-dot bg-amber-500"></span>
+                    Medium
+                  </span>
+                  <span
+                    class="badge priority-badge text-emerald-500 bg-emerald-50"
+                  >
+                    <i class="fa-solid fa-check"></i>
+                    Done
+                  </span>
+                </div>
+
+                <div
+                  class="d-flex align-items-center gap-3 text-muted small pb-3 mb-3 border-bottom"
+                >
+                  <div class="d-flex align-items-center gap-1">
+                    <i class="fa-regular fa-clock"></i>
+                    <span>1m ago</span>
+                  </div>
+                </div>
+
+                <div class="d-flex flex-wrap gap-2">
+                  <button
+                    class="btn btn-sm text-secondary bg-slate-100 status-btn"
+                    data-status="in-progress"
+                  >
+                    <i class="fa-solid fa-arrow-rotate-left me-1"></i>To Do
+                  </button>
+
+                  <button
+                    class="btn btn-sm text-amber-500 bg-amber-50 status-btn p-1"
+                    data-status="in-progress"
+                  >
+                    <i class="fa-solid fa-play me-1"></i> Start
+                  </button>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= Modal ================= -->
+    <div class="modal fade" id="taskModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Create New Task</h5>
+            <button
+              id="btnClose"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <form id="taskForm">
+              <div class="mb-3">
+                <i class="fa-solid fa-heading text-slate-100 fs-6"></i>
+                <label class="form-label"
+                  >Task Title <span class="text-danger">*</span></label
+                >
+                <input type="text" class="form-control" required />
+              </div>
+
+              <div class="d-flex gap-2 align-items-center">
+                <div class="mb-3 flex-grow-1">
+                  <i class="fa-solid fa-flag text-slate-100"></i>
+                  <label class="form-label">Priority</label>
+                  <select class="form-select">
+                    <option>Low</option>
+                    <option selected>Medium</option>
+                    <option>High</option>
+                  </select>
+                </div>
+
+                <div class="mb-3 flex-grow-1">
+                  <i class="fa-regular fa-calendar text-slate-100"></i>
+                  <label class="form-label">Due Date</label>
+                  <input type="date" class="form-control" />
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <i class="fa-solid fa-align-left text-slate-100"></i>
+                <label class="form-label">Description</label>
+                <textarea
+                  class="form-control"
+                  rows="3"
+                  placeholder="Add more Details about the task"
+                ></textarea>
+              </div>
+              <div
+                class="d-flex justify-content-between align-items-center mt-1"
+              >
+                <p
+                  id="description-error"
+                  class="text-danger small d-none mb-0"
+                ></p>
+                <p id="char-count" class="text-muted small ms-auto mb-0">
+                  0/500
+                </p>
+              </div>
+            </form>
+          </div>
+
+          <div
+            class="modal-footer d-flex justify-content-center align-items-center"
+          >
+            <button id="cancelBtn" class="btn btn-secondary flex-grow-1">
+              Cancel
+            </button>
+            <button id="saveBtn" class="btn btn-primary flex-grow-1">
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+<!--  <div class=" ">
+  <i class="fa-regular fa-calendar"></i>
+  <span>jan 28</span>
+</div>-->
+    <!-- ================= Footer ================= -->
+    <footer class="bg-dark text-center text-light py-3 fixed-bottom">
+      Made with <i class="fa-solid fa-heart text-danger"></i> by Route Academy
+    </footer>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="dist/index.js"></script>
+  </body>
+</html>

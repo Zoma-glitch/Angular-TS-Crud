@@ -1,0 +1,159 @@
+.bg-gradient-purple {
+  background: linear-gradient(
+    to right,
+    oklch(51.1% 0.262 276.966),
+    oklch(55.8% 0.288 302.321)
+  );
+}
+.btn-transparent {
+  background-color: #ffffff6e;
+}
+.kanban-column {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 15px;
+  min-height: 500px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.kanban-column h6 {
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+.kanban-column h5 {
+  font-size: 17px;
+}
+.task-list {
+  min-height: 300px;
+}
+.task-card {
+  border-radius: 1rem;
+  transition: all 0.2s ease;
+}
+
+.task-card:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.08);
+}
+
+/* Small dot */
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* Task ID */
+.task-id {
+  font-size: 10px;
+  font-weight: 600;
+  color: #94a3b8;
+  letter-spacing: 1px;
+}
+
+/* Actions hover */
+.task-actions {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.task-card:hover .task-actions {
+  opacity: 1;
+}
+
+.priority-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 999px;
+
+  text-transform: uppercase;
+}
+
+.priority-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+/* Buttons animation */
+.status-btn {
+  font-size: 11px;
+  font-weight: 600;
+  transition: transform 0.15s ease;
+}
+
+.status-btn:hover {
+  transform: scale(1.05);
+}
+
+.status-btn:active {
+  transform: scale(0.95);
+}
+
+/* Icon */
+.icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-box i {
+  font-size: 18px;
+}
+
+/* Tasks container */
+.task-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+/* Empty state */
+.empty-state {
+  padding: 48px 0;
+}
+.text-slate-100 {
+  color: #90a1b9;
+}
+.bg-slate-100 {
+  background-color: #eee9ea;
+}
+.text-amber-500 {
+  color: #fe9a00;
+}
+.bg-amber-500 {
+  background-color: #fe9a00;
+}
+.bg-amber-50 {
+  background-color: #fffbeb;
+}
+.text-emerald-500 {
+  color: #00bc7d;
+}
+.bg-emerald-500 {
+  background-color: #00bc7d;
+}
+.bg-emerald-50 {
+  background-color: #ecfdf5;
+}
+.text-red {
+  color: #dc2626;
+}
+.bg-red{
+    background-color: #fee2e2;
+}
+.bg-dark-red{
+ background-color: #dc2626;
+}
+textarea {
+  resize: none;
+}
